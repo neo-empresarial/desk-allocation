@@ -34,8 +34,21 @@ class SequentialTimeConstraint(Constraint[str, str]):
     pass
 
 
+class NotePrefConstraint(Constraint[str, str]):
+    def __init__(self, h1: str) -> None:
+        super().__init__([h1])
+        self.h1: str = h1
+
+    def satisfied(self, assignment: Dict[str, str]) -> bool:
+        if self.h1 not in assignment:
+            return True
+        return assignment[self.h1][:4] == "Note"
+
+    pass
+
+
 def add_one_per_desk_constraint(csp, vars_):
-    df = pd.DataFrame(vars_, columns=["acronym", "day", "time"])
+    df = pd.DataFrame(vars_, columns=["acronym", "day", "time", "notePref"])
 
     day = (df['day'].drop_duplicates())
     time = (df['time'].drop_duplicates())
@@ -56,7 +69,7 @@ def add_one_per_desk_constraint(csp, vars_):
 
 
 def add_sequential_time_same_desk_constraint(csp, vars_):
-    df = pd.DataFrame(vars_, columns=["acronym", "day", "time"])
+    df = pd.DataFrame(vars_, columns=["acronym", "day", "time", "notePref"])
     df.time = [x + ':00' for x in df.time]
     df.time = pd.to_timedelta(df.time)
     ha = pd.Timedelta('00:50:00')
@@ -66,8 +79,8 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
         seq = df.loc[df.acronym == ac]
         for d in seq.day.drop_duplicates():
             seq_p_day = seq.loc[seq.day == d]
-            seq_p_day['interval'] = (seq_p_day.time -
-                                     seq_p_day.time.iloc[0]) / ha
+            seq_p_day['interval'] = (
+                (seq_p_day.time - seq_p_day.time.iloc[0]) / ha)
             if seq_p_day['interval'].sum():
                 seq_p_day = seq_p_day.reset_index(drop=True).drop(
                     columns=['interval'])
@@ -92,6 +105,13 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
     pass
 
 
+def add_note_pref_constraint(csp, vars_):
+    for var in vars_:
+        if var[3] == "Note":
+            csp.add_constraint(NotePrefConstraint(var))
+    pass
+
+
 def process_variables(times):
     variables: List[tuple] = []
 
@@ -105,23 +125,22 @@ def process_domains(variables):
     domains: Dict[str, List[str]] = {}
 
     for variable in variables:
-        domains[variable] = ["Note 1", "Note 2", "Note 3"]
+        domains[variable] = ["Note 1", "Note 2", "Mango"]
     return domains
 
 
 if __name__ == "__main__":
-    a = {
-        "JNR": [["Mon", "13:30"], ["Mon", "14:20"], ["Mon", "11:00"],
-                ["Mon", "11:50"], ["Mon", "10:10"]],
-        "FSN": [["Mon", "13:30"]],
-        "PDK": [["Mon", "13:30"], ["Mon", "14:20"], ["Mon", "08:20"],
-                ["Mon", "09:10"]],
-        "MVG": [
-            ["Fri", "11:00"],
-        ],
+    timeSchedule = {
+        "JNR": [["Mon", "09:10", ""], ["Mon", "10:00",
+                                       ""], ["Tue", "07:30", ""],
+                ["Fri", "10:10", ""], ["Fri", "11:00", ""]],
+        "FSN": [["Mon", "07:30", "Note"], ["Mon", "08:20", "Note"],
+                ["Mon", "09:10", "Note"]],
+        "PDK": [["Mon", "09:10", "Note"], ["Mon", "10:00", "Note"],
+                ["Mon", "11:00", "Note"], ["Mon", "16:20", "Note"]]
     }
 
-    variables = process_variables(a)
+    variables = process_variables(timeSchedule)
 
     domains = process_domains(variables)
 
@@ -130,6 +149,8 @@ if __name__ == "__main__":
     add_one_per_desk_constraint(csp, variables)
 
     add_sequential_time_same_desk_constraint(csp, variables)
+
+    add_note_pref_constraint(csp, variables)
 
     solution: Optional[Dict[str, str]] = csp.backtracking_search()
 
