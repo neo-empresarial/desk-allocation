@@ -7,37 +7,29 @@ from pprint import pprint
 
 
 class OnePerDeskConstraint(Constraint[str, str]):
-    def __init__(self, allocation1: str, allocation2: str) -> None:
-        super().__init__([allocation1, allocation2])
-        self.allocation1: str = allocation1
-        self.allocation2: str = allocation2
+    def __init__(self, h1: str, h2: str) -> None:
+        super().__init__([h1, h2])
+        self.h1: str = h1
+        self.h2: str = h2
 
     def satisfied(self, assignment: Dict[str, str]) -> bool:
-        # If either allocation is not in the assignment then it is not
-        # yet possible for their colors to be conflicting
-        if self.allocation1 not in assignment or self.allocation2 not in assignment:
+        if self.h1 not in assignment or self.h2 not in assignment:
             return True
-        # check the color assigned to allocation1 is not the same as the
-        # color assigned to allocation2
-        return assignment[self.allocation1] != assignment[self.allocation2]
+        return assignment[self.h1] != assignment[self.h2]
 
     pass
 
 
 class SequentialTimeConstraint(Constraint[str, str]):
-    def __init__(self, allocation1: str, allocation2: str) -> None:
-        super().__init__([allocation1, allocation2])
-        self.allocation1: str = allocation1
-        self.allocation2: str = allocation2
+    def __init__(self, h1: str, h2: str) -> None:
+        super().__init__([h1, h2])
+        self.h1: str = h1
+        self.h2: str = h2
 
     def satisfied(self, assignment: Dict[str, str]) -> bool:
-        # If either allocation is not in the assignment then it is not
-        # yet possible for their colors to be conflicting
-        if self.allocation1 not in assignment or self.allocation2 not in assignment:
+        if self.h1 not in assignment or self.h2 not in assignment:
             return True
-        # check the color assigned to allocation1 is not the same as the
-        # color assigned to allocation2
-        return assignment[self.allocation1] != assignment[self.allocation2]
+        return assignment[self.h1] == assignment[self.h2]
 
     pass
 
@@ -77,15 +69,26 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
             seq_p_day['interval'] = (seq_p_day.time -
                                      seq_p_day.time.iloc[0]) / ha
             if seq_p_day['interval'].sum():
-                seq_p_day = seq_p_day.reset_index(drop=True)
+                seq_p_day = seq_p_day.reset_index(drop=True).drop(
+                    columns=['interval'])
                 mask = seq_p_day.time.diff().apply(lambda x: x == ha)
+                seq_p_day.time = seq_p_day.time.apply(
+                    lambda x:
+                    f'{x.components.hours:02d}:{x.components.minutes:02d}'
+                    if not pd.isnull(x) else '')
                 indexes = (mask.index[mask == False].tolist())
                 for idx, val in enumerate(indexes):
                     try:
                         seq_p_person.append(seq_p_day[val:indexes[idx + 1]])
                     except IndexError:
                         seq_p_person.append(seq_p_day[val:])
-    pprint(seq_p_person)
+    seq = [
+        list(combinations([tuple(x) for x in i.values.tolist()], 2))
+        for i in seq_p_person
+    ]
+    for i in seq:
+        for j in i:
+            csp.add_constraint(SequentialTimeConstraint(*j))
     pass
 
 
@@ -111,7 +114,8 @@ if __name__ == "__main__":
         "JNR": [["Mon", "13:30"], ["Mon", "14:20"], ["Mon", "11:00"],
                 ["Mon", "11:50"], ["Mon", "10:10"]],
         "FSN": [["Mon", "13:30"]],
-        "PDK": [["Mon", "13:30"]],
+        "PDK": [["Mon", "13:30"], ["Mon", "14:20"], ["Mon", "08:20"],
+                ["Mon", "09:10"]],
         "MVG": [
             ["Fri", "11:00"],
         ],
@@ -132,5 +136,5 @@ if __name__ == "__main__":
     if solution is None:
         pprint("No solution found!")
     else:
-        # pprint(solution)
+        pprint(solution)
         pass
