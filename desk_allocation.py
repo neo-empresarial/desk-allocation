@@ -84,7 +84,8 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
             if seq_p_day['interval'].sum():
                 seq_p_day = seq_p_day.reset_index(drop=True).drop(
                     columns=['interval'])
-                mask = seq_p_day.time.diff().apply(lambda x: x == ha)
+                mask = seq_p_day.time.diff().apply(
+                    lambda x: x % ha < pd.Timedelta('00:30:00'))
                 seq_p_day.time = seq_p_day.time.apply(
                     lambda x:
                     f'{x.components.hours:02d}:{x.components.minutes:02d}'
@@ -105,10 +106,11 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
     pass
 
 
-def add_note_pref_constraint(csp, vars_):
+def add_prefs_constraint(csp, vars_):
     for var in vars_:
-        if var[3] == "Note":
-            csp.add_constraint(NotePrefConstraint(var))
+        for pref in var[3]:
+            if pref == "Note":
+                csp.add_constraint(NotePrefConstraint(var))
     pass
 
 
@@ -131,13 +133,12 @@ def process_domains(variables):
 
 if __name__ == "__main__":
     timeSchedule = {
-        "JNR": [["Mon", "09:10", ""], ["Mon", "10:00",
-                                       ""], ["Tue", "07:30", ""],
-                ["Fri", "10:10", ""], ["Fri", "11:00", ""]],
-        "FSN": [["Mon", "07:30", "Note"], ["Mon", "08:20", "Note"],
-                ["Mon", "09:10", "Note"]],
-        "PDK": [["Mon", "09:10", "Note"], ["Mon", "10:00", "Note"],
-                ["Mon", "11:00", "Note"], ["Mon", "16:20", "Note"]]
+        "JNR": [["Mon", "09:10", ("")], ["Mon", "10:00", ("")], ["Tue", "07:30", ("")],
+                ["Mon", "15:10", ("")], ["Mon", "16:20", ("")]],
+        "FSN": [["Mon", "15:10", ("Note",)], ["Mon", "16:20", ("Note",)],
+                ["Mon", "17:10", ("Note",)]],
+        "PDK": [["Mon", "09:10", ("Note",)], ["Mon", "10:10", ("Note",)],
+                ["Mon", "11:00", ("Note", "LV")], ["Mon", "15:10", ("Note", "LV")], ["Mon", "16:20", ("Note", "LV")]]
     }
 
     variables = process_variables(timeSchedule)
@@ -150,7 +151,7 @@ if __name__ == "__main__":
 
     add_sequential_time_same_desk_constraint(csp, variables)
 
-    add_note_pref_constraint(csp, variables)
+    add_prefs_constraint(csp, variables)
 
     solution: Optional[Dict[str, str]] = csp.backtracking_search()
 
