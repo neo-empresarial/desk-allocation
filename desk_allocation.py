@@ -1,7 +1,7 @@
-from csp import Constraint, CSP
-from typing import Dict, List, Optional
 import pandas as pd
 import numpy as np
+from csp import Constraint, CSP
+from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
 
@@ -111,6 +111,7 @@ def add_prefs_constraint(csp, vars_):
         for pref in var[3]:
             if pref == "Note":
                 csp.add_constraint(NotePrefConstraint(var))
+
     pass
 
 
@@ -133,12 +134,15 @@ def process_domains(variables):
 
 if __name__ == "__main__":
     timeSchedule = {
-        "JNR": [["Mon", "09:10", ("")], ["Mon", "10:00", ("")], ["Tue", "07:30", ("")],
-                ["Mon", "15:10", ("")], ["Mon", "16:20", ("")]],
-        "FSN": [["Mon", "15:10", ("Note",)], ["Mon", "16:20", ("Note",)],
-                ["Mon", "17:10", ("Note",)]],
-        "PDK": [["Mon", "09:10", ("Note",)], ["Mon", "10:10", ("Note",)],
-                ["Mon", "11:00", ("Note", "LV")], ["Mon", "15:10", ("Note", "LV")], ["Mon", "16:20", ("Note", "LV")]]
+        "JNR": [["Mon", "09:10", ("")], ["Mon", "10:00", ("")],
+                ["Tue", "07:30", ("")], ["Mon", "15:10", ("")],
+                ["Mon", "16:20", ("")]],
+        "FSN": [["Mon", "15:10", ("Note", )], ["Mon", "16:20", ("Note", )],
+                ["Mon", "17:10", ("Note", )]],
+        "PDK": [["Mon", "09:10", ("Note", )], ["Mon", "10:10", ("Note", )],
+                ["Mon", "11:00", ("Note", "LV")],
+                ["Mon", "15:10", ("Note", "LV")],
+                ["Mon", "16:20", ("Note", "LV")]]
     }
 
     variables = process_variables(timeSchedule)

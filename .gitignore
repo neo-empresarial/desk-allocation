@@ -1,2 +1,4 @@
 .pytest_cache
 .vscode/*
+time_schedule.py
+.vscode
