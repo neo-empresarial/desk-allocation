@@ -18,9 +18,7 @@ class Constraint(Generic[V, D], ABC):
 
 
 # A constraint satisfaction problem consists of variables of type V
-# that have ranges of values known as domains of type D and constraints
-
-
+# that have ranges of values known as domains of type D and constraint
 # that determine whether a particular variable's domain selection is valid
 class CSP(Generic[V, D]):
     def __init__(self, variables: List[V], domains: Dict[V, List[D]]) -> None:

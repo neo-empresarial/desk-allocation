@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from csp import Constraint, CSP
 from typing import Dict, List, Optional
 from itertools import combinations
