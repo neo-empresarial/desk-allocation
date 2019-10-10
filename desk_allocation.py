@@ -33,7 +33,14 @@ class SequentialTimeConstraint(Constraint[str, str]):
     pass
 
 
-class NotePrefConstraint(Constraint[str, str]):
+software = {
+    'Photoshop': ["Mango 2", "Mango 1"],
+    'LV': ['Mango 3'],
+    'Note': ['Note 1', 'Note 2', 'Note 3']
+}
+
+
+class PrefConstraint(Constraint[str, str]):
     def __init__(self, h1: str) -> None:
         super().__init__([h1])
         self.h1: str = h1
@@ -41,7 +48,7 @@ class NotePrefConstraint(Constraint[str, str]):
     def satisfied(self, assignment: Dict[str, str]) -> bool:
         if self.h1 not in assignment:
             return True
-        return assignment[self.h1][:4] == "Note"
+        return (assignment[self.h1] in software[self.h1[3]])
 
     pass
 
@@ -107,9 +114,7 @@ def add_sequential_time_same_desk_constraint(csp, vars_):
 
 def add_prefs_constraint(csp, vars_):
     for var in vars_:
-        for pref in var[3]:
-            if pref == "Note":
-                csp.add_constraint(NotePrefConstraint(var))
+        csp.add_constraint(PrefConstraint(var))
 
     pass
 
@@ -127,21 +132,22 @@ def process_domains(variables):
     domains: Dict[str, List[str]] = {}
 
     for variable in variables:
-        domains[variable] = ["Note 1", "Note 2", "Mango"]
+        domains[variable] = [
+            "Note 1", "Note 2", "Mango 1", "Mango 2", "Mango 3"
+        ]
     return domains
 
 
 if __name__ == "__main__":
     timeSchedule = {
-        "JNR": [["Mon", "09:10", ("")], ["Mon", "10:00", ("")],
-                ["Tue", "07:30", ("")], ["Mon", "15:10", ("")],
-                ["Mon", "16:20", ("")]],
-        "FSN": [["Mon", "15:10", ("Note", )], ["Mon", "16:20", ("Note", )],
-                ["Mon", "17:10", ("Note", )]],
-        "PDK": [["Mon", "09:10", ("Note", )], ["Mon", "10:10", ("Note", )],
-                ["Mon", "11:00", ("Note", "LV")],
-                ["Mon", "15:10", ("Note", "LV")],
-                ["Mon", "16:20", ("Note", "LV")]]
+        "JNR": [["Mon", "09:10", "Photoshop"], ["Mon", "10:00", "Photoshop"],
+                ["Tue", "07:30", "LV"], ["Mon", "15:10", "Photoshop"],
+                ["Mon", "16:20", "Photoshop"]],
+        "FSN": [["Mon", "15:10", "Note"], ["Mon", "16:20", "Note"],
+                ["Mon", "17:10", "Note"]],
+        "PDK": [["Mon", "09:10", "Note"], ["Mon", "10:10", "Note"],
+                ["Mon", "11:00", "Note"], ["Mon", "15:10", "Note"],
+                ["Mon", "16:20", "Note"]]
     }
 
     variables = process_variables(timeSchedule)
