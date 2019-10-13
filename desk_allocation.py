@@ -34,6 +34,11 @@ class SequentialTimeConstraint(Constraint[str, str]):
 
 
 software = {
+    '': [
+        "Note 1", "Note 2", "Note 3", "Note 4", "Note 5", "Mango 1",
+        "Mango II", "Pida III", "Up II", "Stannis II", "Container",
+        "Santahora", "Stannis I", "1007", "Bovary"
+    ],
     'Photoshop': ["Mango 2", "Mango 1"],
     'LV': ["Mango II", "Pida III", "Up II", "Stannis II"],
     'Note': [
