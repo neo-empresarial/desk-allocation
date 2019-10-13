@@ -3,6 +3,7 @@ from csp import Constraint, CSP
 from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
+from time_slots import time_slots as timeSchedule
 
 
 class OnePerDeskConstraint(Constraint[str, str]):
@@ -152,34 +153,6 @@ def process_domains(variables):
 
 
 if __name__ == "__main__":
-    timeSchedule = {
-        "JNR": [["Mon", "13:30", "Note"], ["Mon", "14:20", "Note"],
-                ["Tue", "07:30", "Note"], ["Tue", "08:20", "Note"],
-                ["Tue", "09:10", "Note"], ["Wed", "07:30", "Note"],
-                ["Wed", "08:20", "Note"], ["Wed", "09:10", "Note"],
-                ["Wed", "10:10", "Note"], ["Wed", "12:40", "Note"],
-                ["Wed", "13:30", "Note"], ["Wed", "14:20", "Note"],
-                ["Wed", "15:10", "Note"], ["Thu", "10:10", "Note"],
-                ["Thu", "11:00", "Note"], ["Thu", "16:20", "Note"],
-                ["Thu", "17:10", "Note"], ["Fri", "07:30", "Note"],
-                ["Fri", "10:10", "Note"], ["Fri", "11:00", "Note"]],
-        "FSN": [["Mon", "07:30", "LV"], ["Mon", "08:20", "LV"],
-                ["Mon", "09:10", "LV"], ["Tue", "07:30", "LV"],
-                ["Tue", "08:20", "LV"], ["Tue", "09:10", "LV"],
-                ["Wed", "10:10", "LV"], ["Wed", "11:00", "LV"],
-                ["Wed", "13:30", "LV"], ["Wed", "14:20", "LV"],
-                ["Wed", "15:10", "LV"], ["Thu", "08:20", "Note"],
-                ["Thu", "09:10", "Note"], ["Thu", "15:10", "Note"],
-                ["Thu", "16:20", "Note"], ["Thu", "17:10", "Note"],
-                ["Thu", "18:00", "Note"], ["Fri", "10:10", "Note"],
-                ["Fri", "11:00", "Note"], ["Fri", "11:50", "Note"],
-                ["Sat", "11:50", "Note"]],
-        "PDK": [["Mon", "09:10", "Note"], ["Mon", "10:10", "Note"],
-                ["Mon", "11:00", "Note"], ["Mon", "13:30", "Note"],
-                ["Mon", "14:20", "Note"], ["Mon", "15:10", "Note"],
-                ["Mon", "16:20", "Note"]]
-    }
-
     variables = process_variables(timeSchedule)
 
     domains = process_domains(variables)
