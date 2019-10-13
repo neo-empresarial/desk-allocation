@@ -1,0 +1,8259 @@
+
+<!DOCTYPE html>
+
+<html>	
+	<head>
+		
+		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
+		<script src="//code.jquery.com/jquery.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+		
+
+
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Intranet NEO Empresarial</title>
+		
+<link rel="stylesheet" href="/static/css/timeControl/vizualizar.css">
+
+		<link rel="stylesheet" href="/static/css/intranet-sidebar.css">
+		<link rel="stylesheet" href="/static/css/intranet-style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+		<script src="/static/js/intranet-sidebar.js"></script>
+
+		<!-- JQUERY DATEPICKER -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/static/plugins/chosen.css">
+		<script type="text/javascript" src="/static/plugins/chosen.jquery.js"></script>
+
+	</head>
+
+	<body>
+		
+<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" style="overflow-x: hidden;"> <!-- "div" do menu lateral - (hidden) Oculta a barra de scroll em X -->
+            <a href="http://www.neo.ufsc.br/neo/"><img class="neo-logo" src = "/static/imgs/logoNEO.png" ></a>
+            <!-- Content-list -->
+            <ul class="sidebar-nav">
+                <li class = "list">
+                    <!-- _________________________________________________PESSOAL__________________________________________________________________ -->
+                    <div class="primeirod dropdown">
+                        <a class = "menu-solto">Pessoal</a>
+                    </div>
+                    <!--
+                    <ul class="primeiro submenu">
+                            <li>
+                                <div class="segundod dropdown">
+                                    
+                                        <a href="#"></a>
+                                    
+                                </div>
+                                
+                            </li>
+                    </ul>
+                    -->
+                    <!-- _____________________________________resto_______________________________________ -->
+                    <ul  class = "primeiro submenu hide"  >
+                            <li>
+                                <div class="segundod dropdown">
+                                     
+                                    <a href="/pessoal/equipe/">equipe</a>
+                                </div>
+                                
+                            </li>
+                            <li class = "list">
+                                <div class="segundod dropdown">
+                                        
+                                    <a href="/pessoal/contatos/">contatos</a>
+                                </div>
+                                
+                                
+                            </li>
+                    </ul>
+
+                </li>
+                <li class = "list">
+                <!-- _________________________________________________HORARIOS__________________________________________________________________ -->
+                    <div class="primeirod dropdown">
+                        <a class = "menu-solto">Horários</a>
+                    </div>
+                    <ul  class="primeiro submenu" >
+                            <li class = "list">
+                                <div class="segundod dropdown">
+                                                                       
+                                    <a href="/horarios/banco">banco de horas</a>
+                                </div>
+                                <div class="segundod dropdown">
+                                     <div class="quadrado"></div>              
+                                    <a href="/horarios/vizualizar">visualizar horários</a>
+                                </div>
+                                <div class="segundod dropdown">
+                                                  
+                                    <a href="/horarios/comum">horários em comum</a>
+                                </div>
+                                <div class="segundod dropdown">
+                                                  
+                                    <a href="/horarios/editar">editar grade</a>
+                                </div>
+                                <div class="segundod dropdown">
+                                                  
+                                    <a href="/horarios/folgaHEs">folgas/HEs</a>
+                                </div>                                                                
+                            </li>
+                    </ul>
+                </li>
+                <li class = "list">
+                <!-- _________________________________________________PROJETOS__________________________________________________________________ -->
+                    <div class="primeirod dropdown">
+                        <a class = "menu-solto">Projetos</a>
+                    </div>
+                    <ul  class = "primeiro submenu hide" >
+
+                        <div class="segundod dropdown">
+                                    
+                            <li><a href="/projetos/">Todos</a></li>
+                        </div>
+                        
+
+                    </ul>
+                </li>
+                <!-- _________________________________________________SEMINARIOS__________________________________________________________________ -->
+                <li class = "list">    
+                    <div class="primeirod dropdown">
+                        <a class = "menu-solto">Seminários</a>
+                    </div>
+                    <ul  class = "primeiro submenu hide" >
+                        <div class="segundod dropdown">
+                            
+                            <li><a href="/seminarios/">Todos</a></li>
+                        </div>
+                        
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- /Content-list -->
+        </div>
+        <!-- /Sidebar -->
+
+        <!-- Page content -->
+        <div id="page-content-wrapper" style="padding: 0px;overflow: hidden;">
+
+            <!-- Botão - ocultar o menu lateral -->
+            <div class = "intranet-header">
+                
+                    
+
+                    <div class="greetings"> Bom dia, Fábio Simones Mendes</div>
+                
+                
+                <a class="header-options" href="/auth/logout">
+                    <img name="logoutimg" class = "header-img logoutimg entrada" src = "/static/imgs/profile0.png">
+                    <img name="logoutimg" class = "header-img logoutimg saida hide" src = "/static/imgs/profile1.png">
+                </a>
+                <a class="header-options" href="/auth/password">
+                    <img name="pswdimg" class = "header-img pswdimg entrada" src = "/static/imgs/senha0.png" style="height: 32px; width: 34px;margin-top:6px;">
+                     <img name="pswdimg" class = "header-img hide pswdimg saida" src = "/static/imgs/senha1.png" style="height: 32px; width: 34px;margin-top:6px;">
+                </a>
+            </div>
+
+            <div id="sidebar-wrapper-button">
+            <button id="menu-toggle" class="side-menu-button-bar"><span id="side-menu-button" class="glyphicon glyphicon-chevron-left"></span></button>
+            </div>
+            <!-- /Botão -->
+
+
+            <div id="base-content" >
+                
+<div class="row content-formDiv">
+	<div class = "session-title" style="margin-top: 20px;"> A partir de: </div>
+	<form action="" method="post" class="content-inputsDiv">
+		<input type='hidden' name='csrfmiddlewaretoken' value='YOB7YjGjJyykPeepTTL4FLVnXITtYMTifX2YY1WWXcJ3x5gWvq5fjJUxoUSf6DBU' />
+		<input type="text" name="dia" class="inicio datepicker" style="display: block; text-align: center; border: 1px solid rgb(125,125,125);">
+		<input type="submit" value="pesquisar" style="margin-top: 10px" class = "btn">
+	</form>
+</div>
+	
+
+	
+	<div class="row dia">
+		<div class = "divTriangulo">
+		<img class="triangulo"  src="/static/imgs/triangulo0.png" ></img>
+		</div>
+		<div class = "session-title">Segunda (14-10-2019)</div>
+		<table class="table-horarios">
+			<thead>
+				<tr>
+					<th>horario</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">AGK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">DFG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">FSN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">GCA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JLD</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JNR</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JVA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LAB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LCZ</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LDB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LIT</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LPC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MON</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MVG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PDK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PYC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">VRN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">YAB</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+					<td style="font-weight: 550">07:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						MTM3103
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">08:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI 405
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC110
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						MTM3103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC209
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI405
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">09:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI 405
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC110
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CCE 117
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC209
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EFI405
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">10:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC108
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CCE 117
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						DAS5203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC108
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CCE 117 
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:50</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Sem.
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Seminário
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">12:40</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">13:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CFH310
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">14:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL 003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC201
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CFH310
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">15:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						EEL 003
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">16:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC302
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						Gestores
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">17:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC302
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">18:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Segunda&#39;, &#39;14-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+	
+
+	
+	<div class="row dia">
+		<div class = "divTriangulo">
+		<img class="triangulo"  src="/static/imgs/triangulo1.png" ></img>
+		</div>
+		<div class = "session-title">Terça (15-10-2019)</div>
+		<table class="table-horarios">
+			<thead>
+				<tr>
+					<th>horario</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">AGK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">DFG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">FSN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">GCA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JLD</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JNR</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JVA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LAB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LCZ</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LDB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LIT</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LPC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MON</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MVG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PDK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PYC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">VRN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">YAB</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+					<td style="font-weight: 550">07:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 208
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						INE5108
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">08:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 208
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC107
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS215
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 102 
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						INE5108
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">09:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 208
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC107
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS215
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						INE5108
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC208
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">10:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CCE 203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC305
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						DAS5203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LABCIR
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CCE 203 
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC305
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						DAS5203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LABCIR
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:50</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						RG
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						RG
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Reunião
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">12:40</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">13:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EPS001
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LIN
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC302
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						DAS5308
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LABEX
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">14:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC 203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EPS001
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LIN
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC302
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						DAS5308
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						LABEX
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">15:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EPS001
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EFI 404
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">16:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS213
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS213
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CFMA05
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EFI 404
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">17:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS213
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						ENS213
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CFMA05
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">18:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Alemão
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Alemão
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Terça&#39;, &#39;15-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+	
+
+	
+	<div class="row dia">
+		<div class = "divTriangulo">
+		<img class="triangulo"  src="/static/imgs/triangulo0.png" ></img>
+		</div>
+		<div class = "session-title">Quarta (16-10-2019)</div>
+		<table class="table-horarios">
+			<thead>
+				<tr>
+					<th>horario</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">AGK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">DFG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">FSN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">GCA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JLD</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JNR</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JVA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LAB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LCZ</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LDB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LIT</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LPC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MON</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MVG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PDK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PYC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">VRN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">YAB</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+					<td style="font-weight: 550">07:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						MTM3103
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">08:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						LABEMC
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						MTM3103
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">09:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">10:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC 102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						LIICT6
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC 102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						LIICT6
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:50</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">12:40</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">13:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI401
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">14:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL 003
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC210
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EFI401
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">15:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC 204
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						LCA
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL 003
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">16:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC 204
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						LCA
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC303
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						FSC5113
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">17:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC 204
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						EEL003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC303
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						FSC5113
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">18:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						Tese
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quarta&#39;, &#39;16-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+	
+
+	
+	<div class="row dia">
+		<div class = "divTriangulo">
+		<img class="triangulo"  src="/static/imgs/triangulo1.png" ></img>
+		</div>
+		<div class = "session-title">Quinta (17-10-2019)</div>
+		<table class="table-horarios">
+			<thead>
+				<tr>
+					<th>horario</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">AGK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">DFG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">FSN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">GCA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JLD</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JNR</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JVA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LAB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LCZ</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LDB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LIT</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LPC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MON</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MVG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PDK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PYC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">VRN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">YAB</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+					<td style="font-weight: 550">07:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">08:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC304
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EPS 001
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC110
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						ENS211
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">09:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC304
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL010
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EPS 001
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC110
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						ENS211
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC206
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">10:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC 111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL008
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						Alemão
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CCE 203 
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						LAMATE
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC 111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL008
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						Alemão
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CCE 203 
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EFI505
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						LAMATE
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC111
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:50</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="Folga [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">12:40</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">13:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CCE 117
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						INE5225
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">14:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC301
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CCE 117 
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						INE5225
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						EEL004
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">15:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC104
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CCE 117B
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC101
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC108
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						INE5225
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">16:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						LIN
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC108
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">17:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC207
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						LIN
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC204
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						CTC108
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">18:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						Alemão
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Quinta&#39;, &#39;17-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+	
+
+	
+	<div class="row dia">
+		<div class = "divTriangulo">
+		<img class="triangulo"  src="/static/imgs/triangulo0.png" ></img>
+		</div>
+		<div class = "session-title">Sexta (18-10-2019)</div>
+		<table class="table-horarios">
+			<thead>
+				<tr>
+					<th>horario</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">AGK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">DFG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">FSN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">GCA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JLD</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JNR</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">JVA</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LAB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LCZ</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LDB</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LIT</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">LPC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MON</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">MVG</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PDK</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">PYC</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">VRN</th>
+					
+					<th style="min-width: 43px;max-width: 3.3333333333333335vw ">YAB</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+	
+				<tr>
+					<td style="font-weight: 550">07:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">08:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EEL009
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EEL009
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC107
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						DAS5203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">09:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EEL009
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EEL009
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC107
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						DAS5203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">10:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI 405
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						ENS215
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC 304 
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC304
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC209
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI405
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI 405
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						ENS215
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC 304 
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC202
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC304
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC306
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC209
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI405
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">11:50</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">12:40</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">13:30</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS 003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						LAI
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						LIICT5
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC113
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC-LAI
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						DAS5308
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">14:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS 003
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						LAI
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						LIICT5
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC113
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC-LAI
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						DAS5308
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EPS003
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">15:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CFMA05
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">16:20</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC105
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC203
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CFMA05
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI 404
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:green">+</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						FSC5113
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">17:10</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						CTC102
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="NEO [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						NEO<span style="color:red">-</span>
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						EFI 404
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="aula [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						FSC5113
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+
+	
+				<tr>
+					<td style="font-weight: 550">18:00</td>
+					
+					
+					
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+					
+					<td  class="- [&#39;Sexta&#39;, &#39;18-10-2019&#39;]" >						
+						
+					</td>
+					
+					
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+	
+
+
+
+            </div>
+        </div>
+        <!-- /Page content-->
+
+</div>
+
+    <!-- Menu Toggle Script -->
+    
+
+
+		<script>
+			
+    $(".entrada").mouseenter(function(e){
+        var id = "." + $(this).attr('name');
+        $(id).toggleClass("hide");
+    });
+    $(".saida").mouseleave(function(e){
+        var id = "." + $(this).attr('name');
+        $(id).toggleClass("hide");
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#side-menu-button").toggleClass("glyphicon-chevron-right");
+        $("#side-menu-button").selected = false;
+    });
+
+    $('.primeirod').click(function(){
+        //esconde todos
+        $('.primeiro').addClass('hide');
+
+        //trabalhar em mostrar o atual
+
+        //mostra o que tem que mostrar
+        $(this).siblings(".submenu").toggleClass('hide');
+    });
+    $('.segundod').click(function(){
+        //esconde todos
+        //$('.primeiro').addClass('hide');
+
+        //trabalhar em mostrar o atual
+
+        //mostra o que tem que mostrar
+        $(this).siblings(".submenu").toggleClass('hide');
+    });
+
+
+$(document).ready(function() {
+    $('.datepicker').datepicker({dateFormat: 'dd/mm/yy'});
+});
+
+$('#base-content').css({
+	"position":"relative",
+	"min-height":"calc(100vh - 45px)",
+	"margin-left":"25px",
+	"overflow-x":"visible",
+	"overflow-y": "hidden"});
+
+
+	
+		</script>
+
+	</body>
+
+
+</html>
+
+
