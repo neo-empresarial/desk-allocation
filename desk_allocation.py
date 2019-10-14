@@ -1,4 +1,3 @@
-import timeit
 import pandas as pd
 import json
 from csp import Constraint, CSP
@@ -6,7 +5,7 @@ from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
 
-with open('data.json') as jf:
+with open('inputs.json') as jf:
     time_schedule = json.load(jf)
 
 
