@@ -2,3 +2,5 @@
 .vscode/*
 time_schedule.py
 .vscode
+data.json
+solution.csv

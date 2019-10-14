@@ -39,7 +39,7 @@ class SequentialTimeConstraint(Constraint[str, str]):
 
 software = {
     '': [
-        "Mango 1",
+        "Mango I",
         "Mango II",
         "Pida III",
         "Up II",
@@ -49,17 +49,8 @@ software = {
         "Stannis I",
         "1007",
         "Bovary",
-        "Note 1",
-        "Note 2",
-        "Note 3",
-        "Note 4",
-        "Note 5",
     ],
-    'Computer': [
-        "Mango 1", "Mango II", "Pida III", "Up II", "Stannis II", "Container",
-        "Santahora", "Stannis I", "1007", "Bovary"
-    ],
-    'Photoshop': ["Mango 2", "Mango 1"],
+    'Photoshop': ["Mango II", "Mango I"],
     'LV': ["Mango II", "Pida III", "Up II", "Stannis II"],
     'Note': [
         "Note 1",
@@ -163,11 +154,15 @@ def process_domains(variables):
     domains: Dict[str, List[str]] = {}
 
     for variable in variables:
-        domains[variable] = [
-            "Note 1", "Note 2", "Note 3", "Note 4", "Note 5", "Mango 1",
-            "Mango II", "Pida III", "Up II", "Stannis II", "Container",
-            "Santahora", "Stannis I", "1007", "Bovary"
-        ]
+        if variable[3] != "Note":
+            domains[variable] = [
+                "Mango I", "Mango II", "Pida III", "Up II", "Stannis II",
+                "Container", "Santahora", "Stannis I", "1007", "Bovary"
+            ]
+        else:
+            domains[variable] = [
+                "Note 1", "Note 2", "Note 3", "Note 4", "Note 5", "Stannis I"
+            ]
     return domains
 
 
