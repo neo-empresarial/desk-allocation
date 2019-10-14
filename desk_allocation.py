@@ -1,9 +1,12 @@
 import pandas as pd
+import json
 from csp import Constraint, CSP
 from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
-from time_slots import time_slots as timeSchedule
+
+with open('data.json') as jf:
+    time_schedule = json.load(jf)
 
 
 class OnePerDeskConstraint(Constraint[str, str]):
@@ -36,13 +39,25 @@ class SequentialTimeConstraint(Constraint[str, str]):
 
 software = {
     '': [
-        "Note 1", "Note 2", "Note 3", "Note 4", "Note 5", "Mango 1",
-        "Mango II", "Pida III", "Up II", "Stannis II", "Container",
-        "Santahora", "Stannis I", "1007", "Bovary"
+        "Mango 1",
+        "Mango II",
+        "Pida III",
+        "Up II",
+        "Stannis II",
+        "Container",
+        "Santahora",
+        "Stannis I",
+        "1007",
+        "Bovary",
+        "Note 1",
+        "Note 2",
+        "Note 3",
+        "Note 4",
+        "Note 5",
     ],
     'Computer': [
-        "Mango 1", "Mango II", "Pida III", "Up II", "Stannis II",
-        "Container", "Santahora", "Stannis I", "1007", "Bovary"
+        "Mango 1", "Mango II", "Pida III", "Up II", "Stannis II", "Container",
+        "Santahora", "Stannis I", "1007", "Bovary"
     ],
     'Photoshop': ["Mango 2", "Mango 1"],
     'LV': ["Mango II", "Pida III", "Up II", "Stannis II"],
@@ -157,7 +172,7 @@ def process_domains(variables):
 
 
 if __name__ == "__main__":
-    variables = process_variables(timeSchedule)
+    variables = process_variables(time_schedule)
 
     domains = process_domains(variables)
 
@@ -174,5 +189,12 @@ if __name__ == "__main__":
     if solution is None:
         pprint("No solution found!")
     else:
-        pprint(solution)
+        df = pd.DataFrame(solution.items(), columns=["key", "computer"])
+        s = df.key
+        df = df.join(
+            pd.DataFrame(s.values.tolist(),
+                         columns=['acronym', 'day', 'time', 'restrictions']))
+        df.loc[:, df.columns != 'key'].to_csv('solution.csv',
+                                              encoding='utf-8',
+                                              index=False)
         pass
