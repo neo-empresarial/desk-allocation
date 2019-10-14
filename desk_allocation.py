@@ -5,7 +5,7 @@ from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
 
-with open('inputs.json') as jf:
+with open('assets/inputs.json') as jf:
     time_schedule = json.load(jf)
 
 
