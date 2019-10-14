@@ -8,6 +8,9 @@ from pprint import pprint
 with open('assets/inputs.json') as jf:
     time_schedule = json.load(jf)
 
+with open('assets/softwares.json') as sw:
+    softwares = json.load(sw)
+
 
 class OnePerDeskConstraint(Constraint[str, str]):
     def __init__(self, h1: str, h2: str) -> None:
@@ -37,40 +40,15 @@ class SequentialTimeConstraint(Constraint[str, str]):
     pass
 
 
-software = {
-    '': [
-        "Mango I",
-        "Mango II",
-        "Pida III",
-        "Up II",
-        "Stannis II",
-        "Container",
-        "Santahora",
-        "Stannis I",
-        "1007",
-        "Bovary",
-    ],
-    'Photoshop': ["Mango II", "Mango I"],
-    'LV': ["Mango II", "Pida III", "Up II", "Stannis II"],
-    'Note': [
-        "Note 1",
-        "Note 2",
-        "Note 3",
-        "Note 4",
-        "Note 5",
-    ]
-}
-
-
 class PrefConstraint(Constraint[str, str]):
     def __init__(self, h1: str) -> None:
         super().__init__([h1])
         self.h1: str = h1
 
     def satisfied(self, assignment: Dict[str, str]) -> bool:
-        if self.h1 not in assignment:
+        if self.h1 not in assignment or not self.h1[3]:
             return True
-        return (assignment[self.h1] in software[self.h1[3]])
+        return (assignment[self.h1] in softwares[self.h1[3]])
 
     pass
 
