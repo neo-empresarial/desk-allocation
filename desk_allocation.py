@@ -1,3 +1,4 @@
+import timeit
 import pandas as pd
 import json
 from csp import Constraint, CSP
@@ -161,12 +162,12 @@ def process_domains(variables):
             ]
         else:
             domains[variable] = [
-                "Note 1", "Note 2", "Note 3", "Note 4", "Note 5", "Stannis I"
+                "Note 1", "Note 2", "Note 3", "Note 4", "Note 5"
             ]
     return domains
 
 
-if __name__ == "__main__":
+def allocate(time_schedule):
     variables = process_variables(time_schedule)
 
     domains = process_domains(variables)
@@ -193,3 +194,7 @@ if __name__ == "__main__":
                                               encoding='utf-8',
                                               index=False)
         pass
+
+
+if __name__ == "__main__":
+    allocate(time_schedule)
