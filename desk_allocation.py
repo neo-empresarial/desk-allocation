@@ -40,6 +40,10 @@ software = {
         "Mango II", "Pida III", "Up II", "Stannis II", "Container",
         "Santahora", "Stannis I", "1007", "Bovary"
     ],
+    'Computer': [
+        "Mango 1", "Mango II", "Pida III", "Up II", "Stannis II",
+        "Container", "Santahora", "Stannis I", "1007", "Bovary"
+    ],
     'Photoshop': ["Mango 2", "Mango 1"],
     'LV': ["Mango II", "Pida III", "Up II", "Stannis II"],
     'Note': [
