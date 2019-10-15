@@ -4,3 +4,4 @@ time_schedule.py
 .vscode
 inputs.json
 solution.csv
+assets/*
