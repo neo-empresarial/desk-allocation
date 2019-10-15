@@ -1,7 +1,9 @@
 .pytest_cache
 .vscode/*
-time_schedule.py
 .vscode
-inputs.json
-solution.csv
-assets/*
+app/api/assets/*
+node_modules
+dist
+*.log
+yarn.lock
+*.pyc
