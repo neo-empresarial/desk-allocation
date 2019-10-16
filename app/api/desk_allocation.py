@@ -161,7 +161,7 @@ def allocate(time_schedule):
 
     if solution is None:
         solution = "No solution found!"
-        pprint("No solution found!")
+        pprint(solution)
     else:
         df = pd.DataFrame(solution.items(), columns=["key", "computer"])
         col_keys_tuples = df.key
