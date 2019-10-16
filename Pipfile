@@ -5,10 +5,10 @@ verify_ssl = true
 
 [dev-packages]
 yapf = "*"
+pytest = "*"
 
 [packages]
 python-constraint = "*"
-pytest = "*"
 pandas = "*"
 flask = "*"
 gunicorn = "*"
