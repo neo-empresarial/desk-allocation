@@ -1,6 +1,5 @@
 from flask import Flask, jsonify
 from functools import reduce
-from .api.desk_allocation import expose_api
 from .api.scripts.timetable import make_table
 import csv
 import os
@@ -12,7 +11,7 @@ app = Flask(__name__,
 
 
 @app.route('/api/getSchedule')
-def say_hello():
+def index():
     return jsonify(make_table())
 
 

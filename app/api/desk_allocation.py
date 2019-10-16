@@ -160,19 +160,20 @@ def allocate(time_schedule):
     solution: Optional[Dict[str, str]] = csp.backtracking_search()
 
     if solution is None:
-        response = "No solution found!"
+        solution = "No solution found!"
         pprint("No solution found!")
     else:
         df = pd.DataFrame(solution.items(), columns=["key", "computer"])
-        s = df.key
+        col_keys_tuples = df.key
         df = df.join(
-            pd.DataFrame(s.values.tolist(),
+            pd.DataFrame(col_keys_tuples.values.tolist(),
                          columns=['acronym', 'day', 'time', 'restrictions']))
-        response = df.loc[:, df.columns != 'key']
-        response.to_csv('./app/api/assets/solution.csv',
+        solution = df.loc[:, df.columns != 'key']
+        solution.to_csv('./app/api/assets/solution.csv',
                         encoding='utf-8',
                         index=False)
-        return response.to_dict('records')
+        solution = solution.to_dict('records')
+    return solution
 
 
 def expose_api():
