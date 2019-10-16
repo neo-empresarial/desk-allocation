@@ -5,11 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 yapf = "*"
+pytest = "*"
 
 [packages]
 python-constraint = "*"
-pytest = "*"
 pandas = "*"
+flask = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,14 +1,14 @@
 import pandas as pd
 import json
-from csp import Constraint, CSP
+from .csp import Constraint, CSP
 from typing import Dict, List, Optional
 from itertools import combinations
 from pprint import pprint
 
-with open('assets/inputs.json') as jf:
+with open('./app/api/assets/inputs.json') as jf:
     time_schedule = json.load(jf)
 
-with open('assets/softwares.json') as sw:
+with open('./app/api/assets/softwares.json') as sw:
     softwares = json.load(sw)
 
 
@@ -160,17 +160,24 @@ def allocate(time_schedule):
     solution: Optional[Dict[str, str]] = csp.backtracking_search()
 
     if solution is None:
-        pprint("No solution found!")
+        solution = "No solution found!"
+        pprint(solution)
     else:
         df = pd.DataFrame(solution.items(), columns=["key", "computer"])
-        s = df.key
+        col_keys_tuples = df.key
         df = df.join(
-            pd.DataFrame(s.values.tolist(),
+            pd.DataFrame(col_keys_tuples.values.tolist(),
                          columns=['acronym', 'day', 'time', 'restrictions']))
-        df.loc[:, df.columns != 'key'].to_csv('solution.csv',
-                                              encoding='utf-8',
-                                              index=False)
-        pass
+        solution = df.loc[:, df.columns != 'key']
+        solution.to_csv('./app/api/assets/solution.csv',
+                        encoding='utf-8',
+                        index=False)
+        solution = solution.to_dict('records')
+    return solution
+
+
+def expose_api():
+    return allocate(time_schedule)
 
 
 if __name__ == "__main__":
