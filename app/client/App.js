@@ -18,14 +18,11 @@ export default class App extends Component {
   }
 
   render() {
-
-    if (!this.state.data) {
-      return <div>Loading...</div>
-    }
-
     return (
       <div>
-        {this.state.data.map((day, idx) => <Table name={idx} data={day}></Table>)}
+        {this.state.data ?
+          this.state.data.map((day, idx) => <Table name={idx} data={day}></Table>) :
+          "Loading..."}
       </div>
     )
   }
