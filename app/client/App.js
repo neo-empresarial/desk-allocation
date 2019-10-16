@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
-import Table from './Table'
+import Table from './Table';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,18 +12,19 @@ export default class App extends Component {
   componentDidMount() {
     fetch('/api/getSchedule')
       .then(res => res.json())
-      .then(res => {
+      .then((res) => {
         this.setState({ data: res });
       });
   }
 
   render() {
+    const { data } = this.state;
     return (
       <div>
-        {this.state.data ?
-          this.state.data.map((day, idx) => <Table name={idx} data={day}></Table>) :
-          "Loading..."}
+        {data
+          ? data.map((day, idx) => <Table day={idx} data={day} />)
+          : 'Loading...'}
       </div>
-    )
+    );
   }
 }

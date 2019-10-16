@@ -1,30 +1,41 @@
-import React, { Component } from 'react'
-import './Table.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import './Table.css';
 
 class Table extends Component {
   constructor(props) {
-    super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
-    this.hours = Object.keys(this.props.data)
-    this.days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+    super(props);
+    this.state = {};
   }
 
   renderTableRow() {
-    let rows = this.hours.map((hour) => [...[hour], ...Object.values(this.props.data[hour])])
-    return rows.map((row, i) => <tr key={i}>{row.map((el, idx) => <td key={idx}>{el}</td>)}</tr>)
+    const { data } = this.props;
+    const hours = Object.keys(data);
+    const rows = hours.map(hour => [...[hour], ...Object.values(data[hour])]);
+    const table = rows.map((row, i) => (
+      <tr key={row[0]}>
+        {row.map((el, idx) => <td key={idx}>{el}</td>)}
+      </tr>
+    ));
+    return table;
   }
 
   renderTableHeader() {
-    let header = [...[''], ...Object.keys(Object.values(this.props.data)[0])]
-    return header.map((key, index) => {
-      return <td key={index}>{key.toUpperCase()}</td>
-    })
+    const { data } = this.props;
+    const header = [...[''], ...Object.keys(Object.values(data)[0])];
+    return header.map((key, index) => (
+      <th key={index}>{key.toUpperCase()}</th>
+    ));
   }
 
   render() {
+    const { weekdays, day } = this.props;
+
     return (
       <div>
-        <h1 id='title'>{this.days[this.props.name]}</h1>
-        <table id='solution'>
+        <h1 id="title">{weekdays[day]}</h1>
+        <table id="solution">
           <thead>
             {this.renderTableHeader()}
           </thead>
@@ -33,8 +44,20 @@ class Table extends Component {
           </tbody>
         </table>
       </div>
-    )
+    );
   }
 }
 
-export default Table
+Table.propTypes = {
+  day: PropTypes.number,
+  weekdays: PropTypes.arrayOf(PropTypes.string),
+  data: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string))
+};
+
+Table.defaultProps = {
+  day: false,
+  weekdays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+  data: false
+};
+
+export default Table;
